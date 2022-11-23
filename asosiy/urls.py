@@ -33,11 +33,12 @@ urlpatterns = [
     path('mijozlar/', MijozlarAPIView.as_view()),
     path('mijoz/<int:pk>/', MijozAPIView.as_view()),
     path('buyurtmalar/', BuyurtmalarAPIView.as_view()),
-
     path('buyurtma/<int:pk>/', BuyurtmaAPIView.as_view()),
     path('haydovchilar/', HaydovchilarAPIView.as_view()),
     path('haydovchi/<int:pk>/', HaydovchiAPIView.as_view()),
     path('get_token/', TokenObtainPairView.as_view()),
     path('token_yangila/', TokenRefreshView.as_view()),
+    path('tadminlar/', AdminlarAPIView.as_view()),
+    path('tadmin/<int:pk>/', AdminAPIView.as_view()),
     path('docs/', schema_view.with_ui("swagger",cache_timeout=0))
 ]

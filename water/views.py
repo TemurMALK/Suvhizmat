@@ -120,3 +120,18 @@ class HaydovchiAPIView(APIView):
         haydovchi = Haydovchi.objects.get(id=pk)
         serializer = HaydovchiSerializer(haydovchi)
         return Response(serializer.data)
+
+class AdminlarAPIView(APIView):
+    permission_classes = [IsAuthenticated, ]
+    def get(self, request):
+        admin = Admin.objects.all()
+        serializer = AdminSerializer(admin, many=True)
+        return Response(serializer.data)
+
+class AdminAPIView(APIView):
+    permission_classes = [IsAuthenticated, ]
+    def get(self, request, pk):
+        admin = Admin.objects.get(id=pk)
+        serializer = AdminSerializer(admin)
+        return Response(serializer.data)
+
